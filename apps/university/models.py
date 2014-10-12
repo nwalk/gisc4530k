@@ -15,8 +15,10 @@ class Students(models.Model):
 
 class Instructors(models.Model):
     """Model for instructor information"""
-    name = models.CharField(max_length=40)
+    first_name = models.CharField(max_length=15)
+    last_name = models.CharField(max_length=15)
     status = models.CharField(max_length=40)
+    course = models.CharField(max_length=40)
 
     def __str__(self):
         return "{}".format(self.name)
@@ -31,6 +33,7 @@ class Courses(models.Model):
     title = models.CharField(max_length=40)
     hours = models.IntegerField(max_length=1)
     location = models.CharField(max_length=50)
+    instructor = models.CharField(max_length=40)
 
     def __str__(self):
         return "{}".format(self.name)
