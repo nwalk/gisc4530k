@@ -4,8 +4,7 @@ from django.contrib import admin
 
 
 urlpatterns = patterns('',
-
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.HomeView.as_view()),
-
-)
+    url(r'^login$', views.LoginView.as_view(), name='login'),
+    )
