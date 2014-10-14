@@ -33,7 +33,7 @@ class Classes(models.Model):
     completion_date = models.DateField()
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}".format(self.course)
 
 
 class Courses(models.Model):
@@ -48,7 +48,7 @@ class Courses(models.Model):
     location: Technology complex rm 659
     instructor: Dr James Jones
     """
-    CRN = models.IntegerField(max_length=4)
+    crn = models.IntegerField(max_length=4)
     section = models.IntegerField(max_length=2)
     course = models.CharField(max_length=10)
     session = models.TextField(max_length=15)
@@ -58,7 +58,7 @@ class Courses(models.Model):
     instructor = models.CharField(max_length=40)
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}".format(self.course)
 
 
 class Instructors(models.Model):
@@ -76,7 +76,7 @@ class Instructors(models.Model):
     course = models.CharField(max_length=40)
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}".format(self.last_name)
 
 
 class Locations(models.Model):
@@ -85,12 +85,13 @@ class Locations(models.Model):
     building: Some Building
     room: 967
     """
+    # may need a university id column
     campus = models.CharField(max_length=40)
     building = models.CharField(max_length=40)
     room = models.CharField(max_length=40)
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}".format(self.campus)
 
 
 class Students(models.Model):
@@ -110,4 +111,4 @@ class Students(models.Model):
     total_hours = models.IntegerField(max_length=3)
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}".format(self.first_name)
