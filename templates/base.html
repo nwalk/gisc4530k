@@ -12,6 +12,8 @@
     {% block css %}
     {% endblock %}
 
+{% block title %}
+{% endblock %}
 
 </head>
 <body>
@@ -51,9 +53,12 @@
                     <input type="text" class="form-control" />
                 </div> <button type="submit" class="btn btn-default">Search</button>
             </form>
-            <form class="navbar-form navbar-right">
-               <button type="button" class="btn btn-warning"><a href="login">Login</a></button>
-            </form>
+
+
+
+{#            <form class="navbar-form navbar-right">#}
+{#               <button type="button" class="btn btn-warning"><a href="login">Login</a></button>#}
+{#            </form>#}
         </div>
     </nav>
 {% block content %}

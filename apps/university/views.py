@@ -8,3 +8,7 @@ class HomeView(generic.TemplateView):
 
 class LoginView(generic.TemplateView):
     template_name = 'login.html'
+
+
+class MapView(generic.TemplateView):
+    template_name = 'mapview.html'
