@@ -22,43 +22,31 @@ class Classes(models.Model):
     """
     Examples:
     course: GISC 4360k Geo-spatial Web Development
-    time_period: SP15
-    university: University of North Georgia
-    completion_date: 10/10/10
+    status: complete, enrolled, incomplete
+    semester: spring 14, summer 14, fall 15
     """
-    course = models.CharField(max_length=40)
-    title = models.CharField(max_length=40)
-    time_period = models.CharField(max_length=4)
-    university = models.CharField(max_length=40)
-    completion_date = models.DateField()
+    course = models.ForeignKey('Courses')
+    status = models.CharField(max_length=4)
 
     def __str__(self):
-        return "{}".format(self.course)
+        return "{}-{}".format(self.course, self.status)
 
 
 class Courses(models.Model):
     """
     Examples:
-    CRN: 4256
-    section: 02
-    course: GISC 4360k
-    session: summer full
+    prefix: GISC
+    number: 4360k
     title: Geo-spatial Web Development
-    hours: 3
-    location: Technology complex rm 659
-    instructor: Dr James Jones
     """
-    crn = models.IntegerField(max_length=4)
-    section = models.IntegerField(max_length=2)
-    course = models.CharField(max_length=10)
-    session = models.TextField(max_length=15)
-    title = models.CharField(max_length=40)
-    hours = models.IntegerField(max_length=1)
-    location = models.CharField(max_length=50)
-    instructor = models.CharField(max_length=40)
+    prefix = models.TextField(max_length=10)
+    number = models.CharField(max_length=10)
+    title = models.CharField(max_length=150)
+    hours = models.IntegerField(max_length=2)
+    location = models.ForeignKey('Locations')
 
     def __str__(self):
-        return "{}".format(self.course)
+        return "{}-{}".format(self.prefix, self.number)
 
 
 class Instructors(models.Model):
@@ -69,11 +57,10 @@ class Instructors(models.Model):
     university: University of North Georgia
     course: one to many relationship
     """
-    first_name = models.CharField(max_length=15)
-    last_name = models.CharField(max_length=15)
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
     status = models.CharField(max_length=40)
-    university = models.CharField(max_length=20)
-    course = models.CharField(max_length=40)
+    course = models.ForeignKey('Courses')
 
     def __str__(self):
         return "{}".format(self.last_name)
@@ -85,10 +72,9 @@ class Locations(models.Model):
     building: Some Building
     room: 967
     """
-    # may need a university id column
-    campus = models.CharField(max_length=40)
-    building = models.CharField(max_length=40)
-    room = models.CharField(max_length=40)
+    campus = models.CharField(max_length=30)
+    building = models.CharField(max_length=30)
+    room = models.CharField(max_length=30)
 
     def __str__(self):
         return "{}".format(self.campus)
@@ -103,9 +89,9 @@ class Students(models.Model):
     status: Full Time
     total_hours: 36
     """
-    first_name = models.CharField(max_length=10)
-    last_name = models.CharField(max_length=10)
-    student_id = models.IntegerField(max_length=9)
+    first_name = models.CharField(max_length=20)
+    last_name = models.CharField(max_length=20)
+    student_id = models.IntegerField(max_length=10)
     student_major = models.CharField(max_length=50)
     status = models.CharField(max_length=40)
     total_hours = models.IntegerField(max_length=3)

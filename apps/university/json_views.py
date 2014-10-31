@@ -19,7 +19,7 @@ class ClassesFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Classes
-        fields = ['id', 'course', 'title', 'university']
+        fields = ['id']
 
 
 class ClassesCollection(generics.ListAPIView):
@@ -33,7 +33,7 @@ class CoursesFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Courses
-        fields = ['id', 'crn', 'title', 'location', 'instructor']
+        fields = ['id']
 
 
 class CoursesCollection(generics.ListAPIView):
@@ -47,7 +47,7 @@ class InstructorsFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Instructors
-        fields = ['id', 'first_name', 'last_name', 'university']
+        fields = ['id']
 
 
 class InstructorsCollection(generics.ListAPIView):

@@ -9,19 +9,19 @@ class ClassesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Classes
         # json id field is called pk in Django-rest-framework
-        fields = ('id', 'course', 'title', 'university')
+        fields = 'id'
 
 
 class CoursesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Courses
-        fields = ('id', 'crn', 'section', 'course', 'title')
+        fields = 'id'
 
 
 class InstructorsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Instructors
-        fields = ('id', 'first_name', 'last_name', 'university')
+        fields = 'id'
 
 
 class LocationsSerializer(serializers.HyperlinkedModelSerializer):
