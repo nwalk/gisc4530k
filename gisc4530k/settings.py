@@ -42,7 +42,14 @@ INSTALLED_APPS = (
     'rest_framework',
     'bootstrap',
     'django.contrib.gis',
+    'registration',
 )
+
+LOGIN_REDIRECT_URL = '/'
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: "/",
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -65,15 +72,15 @@ WSGI_APPLICATION = 'gisc4530k.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'gisc4530k',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'geografio',
         'HOST': 'localhost',
         'PORT': 5432,
     }
 }
 
-
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
