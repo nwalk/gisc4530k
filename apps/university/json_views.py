@@ -33,7 +33,7 @@ class CoursesFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Courses
-        fields = ['id']
+        fields = ['id', 'prefix', 'number', 'title', 'hours']
 
 
 class CoursesCollection(generics.ListAPIView):

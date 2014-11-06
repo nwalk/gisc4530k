@@ -15,7 +15,7 @@ class ClassesSerializer(serializers.HyperlinkedModelSerializer):
 class CoursesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Courses
-        fields = 'id'
+        fields = ('id', 'prefix', 'number', 'title', 'hours')
 
 
 class InstructorsSerializer(serializers.HyperlinkedModelSerializer):

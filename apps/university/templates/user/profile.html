@@ -1,8 +1,64 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{%  block title %}Profile{%  endblock %}
 
 {% block content %}
 <ul>
     <li><a href="/planofstudy">Plan of Study</a></li>
     <li><a href="/transcripts">Transcripts</a></li>
+    <li>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                     <a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+
+                    <div class="modal fade" id="modal-container-552142" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Modal title
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+                                    {{ form.as_p }}
+                                </div>
+                                <div class="modal-footer">
+                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
+{##}
+{#    <section>#}
+{#        <h1>Items list</h1>#}
+{#        <!-- Modal -->#}
+{#        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">#}
+{#        </div>#}
+{#        <!-- /.modal -->#}
+{#        <table class="table table-bordered table-hovered "cellspacing='0'>#}
+{#            <tr>#}
+{#                <th>Item</th>#}
+{#                <th>Actions</th>#}
+{#            </tr>#}
+{#            {% for loan in object_list %}#}
+{#                <tr>#}
+{#                    <td>{{ Courses.title }}</td>#}
+{#                    <td>#}
+{#                        <a class="fa fa-pencil" data-toggle="modal" href="{% url 'item_edit' item.id %}" data-target="#modal" title="edit item" data-tooltip></a>#}
+{#                     </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#        </table>#}
+{#    </section>#}
 {% endblock %}
