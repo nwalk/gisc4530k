@@ -16,6 +16,7 @@ NOTE to developer: some field have been duplicated between models.
 """
 
 from django.contrib.gis.db import models
+from django.forms import ModelForm
 
 
 class Classes(models.Model):
@@ -49,6 +50,13 @@ class Courses(models.Model):
         return "{}-{}".format(self.prefix, self.number)
 
 
+class CoursesForm(ModelForm):
+
+    class Meta:
+        model = Courses
+        fields = ['prefix', 'number', 'title', 'hours']
+
+
 class Instructors(models.Model):
     """
     first_name: James
@@ -78,6 +86,10 @@ class Locations(models.Model):
 
     def __str__(self):
         return "{}".format(self.campus)
+
+
+class PlanOfStudy(models.Model):
+    area_a = models.ForeignKey('Courses')
 
 
 class Students(models.Model):

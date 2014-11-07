@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^profile$', login_required(views.ProfileView.as_view())),
     url(r'^planofstudy$', login_required(views.PlanOfStudyView.as_view())),
     url(r'^transcripts$', login_required(views.TranscriptsView.as_view())),
-    url(r'^create$', views.CoursesCreate.as_view(), name="course_create"),
+    # url(r'^profile$', views.CoursesCreate.as_view(), name="course_create"),
     url(r'^update/(?P<pk>\d+)/$', views.CoursesUpdate.as_view(), name="course_update"),
     url(r'^delete/(?P<pk>\d+)/$', views.CoursesDelete.as_view(), name="course_delete"),
     )

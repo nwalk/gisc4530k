@@ -28,14 +28,14 @@
     margin-right: auto;
 }
 
-#navbar {
-    width:85%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 25px;
-    border-color: blue;
-    border-width: 2px;
-}
+/*#navbar {*/
+    /*width:85%;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*border-radius: 25px;*/
+    /*border-color: blue;*/
+    /*border-width: 2px;*/
+/*}*/
 
 #container {
     width:75%;
@@ -43,4 +43,9 @@
 
 #jumbotron {
     background-color: transparent;
+}
+
+.navbarcontain {
+    position: relative;
+    top: 10px;
 }
