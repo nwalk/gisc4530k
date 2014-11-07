@@ -50,12 +50,6 @@ class Courses(models.Model):
         return "{}-{}".format(self.prefix, self.number)
 
 
-class CoursesForm(ModelForm):
-
-    class Meta:
-        model = Courses
-        fields = ['prefix', 'number', 'title', 'hours']
-
 
 class Instructors(models.Model):
     """
@@ -88,8 +82,8 @@ class Locations(models.Model):
         return "{}".format(self.campus)
 
 
-class PlanOfStudy(models.Model):
-    area_a = models.ForeignKey('Courses')
+# class PlanOfStudy(models.Model):
+#     area_a = models.ForeignKey('Courses')
 
 
 class Students(models.Model):
