@@ -11,7 +11,7 @@ class MapView(generic.TemplateView):
 
 class ProfileView(generic.edit.CreateView):
     template_name = 'user/profile.html'
-    model = models.Courses
+    model = models.StudentClasses
     success_url = '/profile'
 
 
@@ -29,6 +29,10 @@ class TranscriptsView(generic.TemplateView):
 #     success_url = '/profile'
 
 
+class StudentClasses(generic.ListView):
+    model = models.Courses
+    template_name = 'user/profile.html'
+    queryset = models.Courses.objects.filter()
 
 class CoursesUpdate(generic.edit.UpdateView):
     """This is like the create view, different button"""
