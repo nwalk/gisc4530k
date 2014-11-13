@@ -14,18 +14,33 @@ class IntegerListFilter(django_filters.Filter):
         return qs
 
 
-class ClassesFilter(django_filters.FilterSet):
+# class ClassesFilter(django_filters.FilterSet):
+#     id = IntegerListFilter(name='id', lookup_type='in')
+#
+#     class Meta:
+#         model = models.StudentClasses
+#         fields = ['id']
+
+
+# class ClassesCollection(generics.ListAPIView):
+#     queryset = models.StudentClasses.objects.all()
+#     serializer_class = serializers.ClassesSerializer
+#     filter_class = ClassesFilter
+#
+#
+
+class StudentClassesFilter(django_filters.FilterSet):
     id = IntegerListFilter(name='id', lookup_type='in')
 
     class Meta:
-        model = models.Classes
+        model = models.StudentClasses
         fields = ['id']
 
 
-class ClassesCollection(generics.ListAPIView):
-    queryset = models.Classes.objects.all()
-    serializer_class = serializers.ClassesSerializer
-    filter_class = ClassesFilter
+class StudentClassesCollection(generics.ListAPIView):
+    queryset = models.StudentClasses.objects.all()
+    serializer_class = serializers.StudentClassesSerializer
+    filter_class = StudentClassesFilter
 
 
 class CoursesFilter(django_filters.FilterSet):
@@ -33,7 +48,7 @@ class CoursesFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Courses
-        fields = ['id']
+        fields = ['id', 'prefix', 'num', 'title', 'hr']
 
 
 class CoursesCollection(generics.ListAPIView):

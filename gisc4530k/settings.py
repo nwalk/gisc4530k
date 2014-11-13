@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'gisc4530k.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'postgres',
+        'NAME': 'university_api',
         'USER': 'postgres',
         'PASSWORD': 'geografio',
         'HOST': 'localhost',

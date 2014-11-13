@@ -4,9 +4,9 @@ from django.contrib import admin
 
 api_patterns = patterns('',
     url(r'^', include('apps.university.api_urls')),
-    url(r'^', include('apps.university.api_urls')),
-    url(r'^', include('apps.university.api_urls')),
-    url(r'^', include('apps.university.api_urls')),
+    # url(r'^', include('apps.university.api_urls')),
+    # url(r'^', include('apps.university.api_urls')),
+    # url(r'^', include('apps.university.api_urls')),
 )
 
 
