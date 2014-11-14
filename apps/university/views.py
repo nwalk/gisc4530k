@@ -1,5 +1,7 @@
 from django.views import generic
 from . import models
+# from django.db.models import Sum
+
 
 class HomeView(generic.TemplateView):
     template_name = 'home.html'
@@ -12,7 +14,25 @@ class MapView(generic.TemplateView):
 class ProfileView(generic.edit.CreateView):
     template_name = 'user/profile.html'
     model = models.StudentClasses
+    # totalhr = models.Courses.objects.aggregate(Sum('hr'))
     success_url = '/profile'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+        context['AREA_A'] = models.StudentClasses.objects.filter(student__user__pk=self.request.user.pk,
+                                                                 area__name='A')
+        context['AREA_B'] = models.StudentClasses.objects.filter(student__user__pk=self.request.user.pk,
+                                                                 area__name='B')
+        context['AREA_C'] = models.StudentClasses.objects.filter(student__user__pk=self.request.user.pk,
+                                                                 area__name='C')
+        context['AREA_D'] = models.StudentClasses.objects.filter(student__user__pk=self.request.user.pk,
+                                                                 area__name='D')
+        context['AREA_E'] = models.StudentClasses.objects.filter(student__user__pk=self.request.user.pk,
+                                                                 area__name='E')
+        context['AREA_F'] = models.StudentClasses.objects.filter(student__user__pk=self.request.user.pk,
+                                                                 area__name='F')
+        return context
+
 
 
 class PlanOfStudyView(generic.TemplateView):

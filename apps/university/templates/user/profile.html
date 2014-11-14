@@ -4,14 +4,10 @@
 {%  block title %}Profile{%  endblock %}
 
 {% block content %}
-<ul>
-    <li><a href="/planofstudy">Plan of Study</a></li>
-    <li><a href="/transcripts">Transcripts</a></li>
-    <li>
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+{#                    <a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Launch demo modal</a>#}
                     <div class="modal fade" id="modal-container-552142" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -37,8 +33,6 @@
                 </div>
             </div>
         </div>
-    </li>
-</ul>
 <div class="container">
 	<div class="row clearfix">
         <div class="col-md-12 column">
@@ -52,21 +46,39 @@
             </div>
             <div id="planofstudy">
                 <h3>AREA A: Essential Skills (9 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>
+                {%  for class in AREA_A %}
+                <p>{{ class.classes.prefix }}-{{ class.classes.num }} - {{ class.classes.title }} - {{ class.classes.hr }}</p>
+                {% endfor %}
             </div>
             <div id="planofstudy">
                 <h3>AREA B: Institutional Options (6 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>
+                {%  for class in AREA_B %}
+                <p>{{ class.classes.prefix }}-{{ class.classes.num }} - {{ class.classes.title }} - {{ class.classes.hr }}</p>
+                {% endfor %}
             </div>
             <div id="planofstudy">
                 <h3>AREA C: Humanities/Fine Arts (6 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>
+                {%  for class in AREA_C %}
+                <p>{{ class.classes.prefix }}-{{ class.classes.num }} - {{ class.classes.title }} - {{ class.classes.hr }}</p>
+                {% endfor %}
             </div>
             <div id="planofstudy">
                 <h3>AREA D: Science, Math, Technology (11 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>
+                {%  for class in AREA_D %}
+                <p>{{ class.classes.prefix }}-{{ class.classes.num }} - {{ class.classes.title }} - {{ class.classes.hr }}</p>
+                {% endfor %}
             </div>
             <div id="planofstudy">
                 <h3>AREA E: Social Science (9 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>
+                {%  for class in AREA_E %}
+                <p>{{ class.classes.prefix }}-{{ class.classes.num }} - {{ class.classes.title }} - {{ class.classes.hr }}</p>
+                {% endfor %}
             </div>
             <div id="planofstudy">
                 <h3>AREA F: Core Area of Concentration Requirements (18 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>
+                {%  for class in AREA_F %}
+                <p>{{ class.classes.prefix }}-{{ class.classes.num }} - {{ class.classes.title }} - {{ class.classes.hr }}</p>
+                {% endfor %}
             </div>
             <div id="planofstudy">
                 <h3>Required Upper Level Courses (36 hrs)</h3><a id="modal-552142" href="#modal-container-552142" role="button" class="btn" data-toggle="modal">Add Class</a>

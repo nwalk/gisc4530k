@@ -17,6 +17,7 @@ NOTE to developer: some field have been duplicated between models.
 
 from django.contrib.gis.db import models
 from django.forms import ModelForm
+from django.contrib.auth.models import User
 
 
 # class Classes(models.Model):
@@ -40,7 +41,7 @@ class Courses(models.Model):
     hr = models.CharField(max_length=20)
 
     def __str__(self):
-        return "{}-{}-{}".format(self.id, self.prefix, self.num)
+        return "{}-{}-{}-{}".format(self.id, self.prefix, self.num, self.hr)
 
 
 class Instructors(models.Model):
@@ -75,13 +76,14 @@ class Area(models.Model):
     """
     ie. a, b, major curriculum, etc.
     """
-    area = models.CharField(max_length=2)
+    name = models.CharField(max_length=2)
 
     def __str__(self):
-        return "{}".format(self.area)
+        return "{}".format(self.name)
 
 
 class Students(models.Model):
+    user = models.ForeignKey(User)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     student_username = models.CharField(max_length=20, default='null')
