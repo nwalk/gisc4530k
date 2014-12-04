@@ -51,6 +51,27 @@ table, td {
     margin: 10px;
 }
 
+#profile {
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    -webkit-box-shadow: 7px 7px 8px #696969;
+    -moz-box-shadow: 7px 7px 8px #696969;
+    box-shadow: 7px 7px 8px #696969;
+    border: 0px solid #000000;
+    background-image: -moz-linear-gradient(left, #C0C0C0, #696969);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0.00, #C0C0C0), color-stop(1.0, #696969));
+    padding: 11px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 13pt;
+    color: #000000;
+    text-align: left;
+    margin: 10px;
+    height: 200px;
+    width: 400px;
+}
+
+
 /*#navbar {*/
     /*width:85%;*/
     /*margin-left: auto;*/
