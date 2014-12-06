@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'bootstrap',
     'django.contrib.gis',
     'registration',
+    'apps.university_locations'
 )
 
 LOGIN_REDIRECT_URL = '/'
