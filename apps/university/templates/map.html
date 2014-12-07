@@ -19,7 +19,7 @@
 </div>
 {% endblock %}
 
-{% block morescripts %}
+{% block scripts %}
     <script>
     var map = L.mapbox.map('map', 'nwalk.k2pji31h');
     var county_style = {
@@ -28,5 +28,17 @@
         opacity: 1,
         fillOpacity: 0.75
     };
+    $.getJSON("{%  url 'api:universities' %}", function (data) {
+        L.geoJson(data, {style: county_style,
+            onEachFeature: function (feature, layer) {
+                (function (layer, properties) {
+                    layer.on("click", function (e) {
+                        var popup = L.popup().setLatLng(e.latlng)
+                                .setContent('<a href="http://www.google.com">' + properties.name + '</a>')
+                                .openOn(map);
+                    });
+            }) (layer, feature.properties);
+    }}).addTo(map);
+    })
     </script>
 {% endblock %}
