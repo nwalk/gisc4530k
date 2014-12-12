@@ -11,6 +11,9 @@ class MapView(generic.TemplateView):
     template_name = 'map.html'
 
 
+class UngView(generic.TemplateView):
+    template_name = 'ung.html'
+
 class PlanOfStudyView(generic.edit.CreateView):
     template_name = 'user/planofstudy.html'
     model = models.StudentClasses
