@@ -16,3 +16,4 @@ urlpatterns = patterns('',
     url(r'^', include('apps.university.urls', namespace='home')),
     url(r'api/v1/', include(api_patterns, namespace='api')),
 )
+

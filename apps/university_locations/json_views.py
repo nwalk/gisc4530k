@@ -29,3 +29,20 @@ class UniversityCollection(generics.ListAPIView):
     queryset = models.Universities.objects.all()
     serializer_class = serializers.UniversitiesSerializer
     filter_class = UniversityFilter
+
+
+class CampusFilter(django_filters.FilterSet):
+    id = IntegerListFilter(name='id', lookup_type='in')
+
+    class Meta:
+        model = models.Campuses
+        fields = ['name', 'lat', 'lon']
+
+
+class CampusCollection(generics.ListAPIView):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = models.Campuses.objects.all()
+    serializer_class = serializers.CampusSerializer
+    filter_class = CampusFilter

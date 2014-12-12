@@ -11,3 +11,10 @@ class UniversitiesSerializer(geoserializers.GeoFeatureModelSerializer):
         model = models.Universities
         geo_field = 'point'
         fields = ('name', 'address', 'city', 'state', 'telephone', 'website', 'lat', 'lon')
+
+
+class CampusSerializer(geoserializers.GeoFeatureModelSerializer):
+    class Meta:
+        model = models.Campuses
+        geo_field = 'point'
+        fields = ('name', 'lat', 'lon')

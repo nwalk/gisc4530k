@@ -18,3 +18,17 @@ class Universities(models.Model):
     # Returns the string representation of the model.
     def __str__(self):              # __unicode__ on Python 2
         return self.name
+
+
+class Campuses(models.Model):
+    """Regular Django fields corresponding to the attributes in the
+    universities shapefile."""
+    name = models.CharField(max_length=100)
+    lat = models.FloatField()
+    lon = models.FloatField()
+    point = models.PointField()
+    objects = models.GeoManager()
+
+    # Returns the string representation of the model.
+    def __str__(self):              # __unicode__ on Python 2
+        return self.name
